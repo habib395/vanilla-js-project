@@ -4,58 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- connected daisy ui -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
     <!-- navbar start-->
-    <div class="navbar bg-base-100 shadow-sm">
-        <div class="navbar-start">
-          <div class="dropdown">
-            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-            </div>
-            <ul
-              tabindex="-1"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-              <li><a>Item 1</a></li>
-              <li>
-                <a>Parent</a>
-                <ul class="p-2">
-                  <li><a>Submenu 1</a></li>
-                  <li><a>Submenu 2</a></li>
-                </ul>
-              </li>
-              <li><a>Item 3</a></li>
-            </ul>
-          </div>
-          <a class="btn btn-ghost text-xl">daisyUI</a>
-        </div>
-        <div class="navbar-center hidden lg:flex">
-          <ul class="menu menu-horizontal px-1">
-            <li><a>Item 1</a></li>
-            <li>
-              <details>
-                <summary>Parent</summary>
-                <ul class="p-2 bg-base-100 w-40 z-1">
-                  <li><a>Submenu 1</a></li>
-                  <li><a>Submenu 2</a></li>
-                </ul>
-              </details>
-            </li>
-            <li><a>Item 3</a></li>
-          </ul>
-        </div>
-        <div class="navbar-end">
-          <a class="btn">Button</a>
+     <div class="w-5/6 mx-auto bg-base-100">
+         <div class="navbar">
+             <div class="navbar-start">
+               <div class="dropdown">
+                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                 </div>
+                 <ul
+                   tabindex="-1"
+                   class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                   <li><a>Home</a></li>
+                   <li>
+                     <a>Products</a>
+                   </li>
+                   <li><a>About</a></li>
+                   <li><a>Contact</a></li>
+                 </ul>
+               </div>
+               <a class="btn btn-ghost text-xl">SwiftCart</a>
+             </div>
+             <div class="navbar-center hidden lg:flex">
+               <ul class="menu menu-horizontal px-1">
+                 <li><a>Home</a></li>
+                   <li>
+                     <a>Products</a>
+                   </li>
+                   <li><a>About</a></li>
+                   <li><a>Contact</a></li>
+                     </ul>
+                 </li>
+               </ul>
+             </div>
+             <div class="navbar-end">
+               <a>
+                   <i class="fas fa-shopping-cart"></i>
+               </a>
+             </div>
+           </div>
+     </div>
+     <!-- navbar end -->
+      <!-- Banner section start -->
+      <div
+      class="hero min-h-screen"
+      style="background-image: url('./assets/banner-image.png');"
+    >
+      <div class="hero-overlay"></div>
+      <div class="hero-content text-neutral-content">
+        <div class="max-w-md">
+          <h1 class="mb-5 text-5xl font-bold">Best Collection For You</h1>
+          <p class="mb-5">
+            Discover the latest trends in fashion, electronics and more. Shop with <br>
+            confidence and style at SwiftCart.
+          </p>
+          <button class="btn btn-primary">Get Started</button>
         </div>
       </div>
-     <!-- navbar end -->
-    <h1 class="text-3xl font-bold italic">
-      Hello world!
-    </h1>
-    <button class="btn">Button</button>
+    </div>
+      <!-- Banner section end -->
+       
     <!-- footer section start -->
     <footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
         <nav>
