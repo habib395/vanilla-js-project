@@ -18,7 +18,7 @@ const displayProducts = async () => {
       .slice(0, 3);
 
     topThreeProducts.forEach((product) => {
-      const { title, price, description, category, image, rating } = product;
+      const { id, title, price, description, category, image, rating } = product;
       const div = document.createElement("div");
       div.innerHTML = `
             <div class="card bg-base-100 shadow-sm py-8">
@@ -41,7 +41,7 @@ const displayProducts = async () => {
                           <p class="text-base font-semibold">${title}</p>
                           <p class="text-base font-semibold">$${price}</p>
                           <div class="flex items-center justify-between gap-4 pt-4">
-                            <button class="btn"> <i class="fas fa-shopping-cart"></i> Details</button>
+                            <button onClick="cardDetailed(${id})" class="btn"> <i class="fas fa-shopping-cart"></i> Details</button>
                             <button class="btn"> <i class="fas fa-shopping-cart"></i> Add</button>
                           </div>
                         </div>
@@ -55,27 +55,33 @@ const displayButton = async () => {
   const res = await fetch("https://fakestoreapi.com/products/categories");
   const buttonData = await res.json();
 
-  const buttonContainer = document.getElementById("btn-container")
+  const buttonContainer = document.getElementById("btn-container");
+  buttonContainer.innerHTML = "";
 
-    buttonData.map((button) => {
-        const div = document.createElement("div");
-        div.innerHTML=`
-        <button class="btn rounded-full">${button}</button>
-        `
-        buttonContainer.append(div);
+    buttonData.forEach((button) => {
+        const btn = document.createElement("div");
+        btn.className = "btn rounded-full";
+        btn.innerText = button;
+
+        btn.addEventListener("click", () => {
+            displayButtonCard(button)
+        })
+
+        buttonContainer.append(btn);
     })
 };
 
-const displayButtonCard = async() => {
-
-    const res = await fetch("https://fakestoreapi.com/products/category/electronics");
+const displayButtonCard = async(data) => {
+    
+    const res = await fetch(`https://fakestoreapi.com/products/category/${data}`);
     const categoryProductsData = await res.json();
-
-
+    
+    
     const btnCardContainer = document.getElementById("btn-card-section");
+    btnCardContainer.innerHTML = ""
 
-    categoryProductsData.map((product) => {
-        const { title, price, description, category, image, rating } = product;
+    categoryProductsData.forEach((product) => {
+        const { id, title, price, description, category, image, rating } = product;
         const div = document.createElement("div");
         div.innerHTML= `
         <div class="card bg-base-100 shadow-sm py-8">
@@ -98,7 +104,7 @@ const displayButtonCard = async() => {
                               <p class="text-base font-semibold">${title}</p>
                               <p class="text-base font-semibold">$${price}</p>
                               <div class="flex items-center justify-between gap-4 pt-4">
-                                <button class="btn"> <i class="fas fa-shopping-cart"></i> Details</button>
+                                <button onClick="cardDetailed(${id})" class="btn"> <i class="fas fa-shopping-cart"></i>Details</button>
                                 <button class="btn"> <i class="fas fa-shopping-cart"></i> Add</button>
                               </div>
                             </div>
@@ -107,4 +113,50 @@ const displayButtonCard = async() => {
         btnCardContainer.append(div)
     })
 };
-displayButtonCard();
+
+const cardDetailed = async(id) => {
+
+    const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+    const cardDetailData = await res.json();
+    const { title, price, description, category, image, rating } = cardDetailData;
+
+    const cardDetailModal = document.getElementById('card-modal');
+    cardDetailModal.innerHTML = `
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box">
+  <div class="card bg-base-100 shadow-sm py-8">
+  <form method="dialog">
+     <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+   </form>
+                            <figure>
+                              <img
+                                src=${image}
+                                alt="Shoes"
+                                class="w-70 h-50" />
+                            </figure>
+                            <div class="card-body">
+                                <div class="flex items-center justify-between">
+                                    <div class="badge badge-soft badge-primary">${category}</div>
+                                    <div class="flex items-center justify-between gap-2">
+                                        <div class="rating rating-sm">
+                                            <input type="radio" name="rating-6" class="mask mask-star-2 bg-orange-400" aria-label="2 star" checked="checked" />
+                                          </div>
+                                          <p>${rating.rate} (${rating.count})</p>
+                                    </div>
+                                </div>
+                              <p class="text-base font-semibold">${title}</p>
+                              <p class="text-base font-semibold">$${price}</p>
+                              <p class="text-base font-semibold">${description}</p>
+                              <div class="flex items-center justify-between gap-4 pt-4">
+                                <button class="btn"> <i class="fas fa-shopping-cart"></i> Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+
+    <div class="modal-action">
+    </div>
+  </div>
+</dialog>
+    `
+    my_modal_1.showModal();
+};
