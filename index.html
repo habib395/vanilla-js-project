@@ -21,9 +21,9 @@
                  <ul
                    tabindex="-1"
                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                   <li><a>Home</a></li>
+                   <li><a onclick="displayProducts()">Home</a></li>
                    <li>
-                     <a>Products</a>
+                     <a onclick="displayButton()">Products</a>
                    </li>
                    <li><a>About</a></li>
                    <li><a>Contact</a></li>
@@ -33,9 +33,9 @@
              </div>
              <div class="navbar-center hidden lg:flex">
                <ul class="menu menu-horizontal px-1">
-                 <li><a>Home</a></li>
+                 <li><a onclick="displayProducts()">Home</a></li>
                    <li>
-                     <a>Products</a>
+                     <a onclick="displayButton()">Products</a>
                    </li>
                    <li><a>About</a></li>
                    <li><a>Contact</a></li>
@@ -51,25 +51,100 @@
            </div>
      </div>
      <!-- navbar end -->
-      <!-- Banner section start -->
-      <div
-      class="hero min-h-screen"
-      style="background-image: url('./assets/banner-image.png');"
-    >
-      <div class="hero-overlay"></div>
-      <div class="hero-content text-neutral-content">
-        <div class="max-w-md">
-          <h1 class="mb-5 text-5xl font-bold">Best Collection For You</h1>
-          <p class="mb-5">
-            Discover the latest trends in fashion, electronics and more. Shop with <br>
-            confidence and style at SwiftCart.
-          </p>
-          <button class="btn btn-primary">Get Started</button>
+      <!-- home main section start -->
+      <main>
+          <!-- Banner section start -->
+          <div
+          class="hero min-h-screen"
+          style="background-image: url('./assets/banner-image.png');"
+        >
+          <div class="hero-overlay"></div>
+          <div class="hero-content text-neutral-content">
+            <div class="max-w-md">
+              <h1 class="mb-5 text-5xl font-bold">Best Collection For You</h1>
+              <p class="mb-5">
+                Discover the latest trends in fashion, electronics and more. Shop with <br>
+                confidence and style at SwiftCart.
+              </p>
+              <button class="btn btn-primary">Get Started</button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-      <!-- Banner section end -->
-       
+          <!-- Banner section end -->
+           <!-- choose section start -->
+            <div class="choose-section bg-gray-100 py-16">
+                <div class="text-center py-12">
+                    <h2 class="font-bold text-3xl">Why Choose Us</h2>
+                <p class="text-gray-400">We provide the best shopping experience with top-notch services.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 w-2/3 mx-auto">
+                    <!-- card section start -->
+                     <!-- card-one start -->
+                     <div class="relative card bg-gray-50 border border-white rounded-lg p-5">
+                         <div>
+                             <i class="fas fa-shopping-cart absolute -mt-10 border border-2 border-white text-blue-600 p-3 rounded-lg bg-blue-100 text-xl"></i>
+                         </div>
+                         <h2 class="text-base py-5 font-semibold">Fast Delivery</h2>
+                         <p class="text-sm text-gray-400">Get your orders delivery ot your doorstep quickly and effectively.</p>
+                     </div>
+                     <!-- card-one end -->
+                      <!-- card two start -->
+                      <div class="relative card bg-gray-50 border border-white rounded-lg p-5">
+                        <div>
+                            <i class="fas fa-shopping-cart absolute -mt-10 border border-2 border-white text-blue-600 p-3 rounded-lg bg-blue-100 text-xl"></i>
+                        </div>
+                        <h2 class="text-base py-5 font-semibold">Fast Delivery</h2>
+                        <p class="text-sm text-gray-400">Get your orders delivery ot your doorstep quickly and effectively.</p>
+                    </div>
+                      <!-- card two end -->
+                      <!-- card three start -->
+                      <div class="relative card bg-gray-50 border border-white rounded-lg p-5">
+                        <div>
+                            <i class="fas fa-shopping-cart absolute -mt-10 border border-2 border-white text-blue-600 p-3 rounded-lg bg-blue-100 text-xl"></i>
+                        </div>
+                        <h2 class="text-base py-5 font-semibold">Fast Delivery</h2>
+                        <p class="text-sm text-gray-400">Get your orders delivery ot your doorstep quickly and effectively.</p>
+                    </div>
+                      <!-- card three end -->
+                      <!-- card four start -->
+                      <div class="relative card bg-gray-50 border border-white rounded-lg p-5">
+                        <div>
+                            <i class="fas fa-shopping-cart absolute -mt-10 border border-2 border-white text-blue-600 p-3 rounded-lg bg-blue-100 text-xl"></i>
+                        </div>
+                        <h2 class="text-base py-5 font-semibold">Fast Delivery</h2>
+                        <p class="text-sm text-gray-400">Get your orders delivery ot your doorstep quickly and effectively.</p>
+                    </div>
+                      <!-- card four end -->
+                </div>
+            </div>
+           <!-- choose section end -->
+            <!-- trending section start -->
+             <div class="trending-section py-14 w-2/3 mx-auto">
+                <h2 class="font-bold text-3xl">Trending Now</h2>
+                <!-- trending card section start -->
+                 <div id="card-container" class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                 </div>
+             </div>
+            <!-- trending section end -->
+      </main>
+      <!-- home main section end -->
+       <!-- product main section start -->
+      <main>
+        <div class="py-20 w-2/3 mx-auto">
+          <h2 class="text-xl font-bold text-center">Our Products</h2>
+          <!-- button section for category start -->
+           <div id="btn-container" class="flex items-center justify-center gap-6 py-6">
+           </div>
+          <!-- button section for category end -->
+           <!-- button card section start -->
+           <div id="btn-card-section" class="grid grid-cols-1 sm:grid-cols-3 gap-6"">
+
+           </div>
+           <!-- button card section end -->
+        </div>
+      </main>
+       <!-- product main section end -->
+
     <!-- footer section start -->
     <footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
         <nav>
@@ -80,8 +155,8 @@
         </nav>
         <nav>
           <h6 class="footer-title">QUICK LINKS</h6>
-          <a class="link link-hover">Home</a>
-          <a class="link link-hover">Products</a>
+          <a onclick="displayProducts()" class="link link-hover">Home</a>
+          <a onclick="displayButton()" class="link link-hover">Products</a>
           <a class="link link-hover">About</a>
           <a class="link link-hover">Contact</a>
         </nav>
@@ -105,7 +180,6 @@
           </fieldset>
         </form>
       </footer>
-
       <footer class="footer sm:footer-horizontal items-center p-4">
         <aside class="grid-flow-col items-center">
           <p> © 2025 SwiftCart, Inc. All right reserved.</p>
