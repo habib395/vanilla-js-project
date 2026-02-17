@@ -96,7 +96,6 @@ const displayButton = async () => {
     const buttonContainer = document.getElementById("btn-container");
     buttonContainer.innerHTML = "";
   
-    // ✅ ALL button (default active)
     const allBtn = document.createElement("button");
     allBtn.className = "btn rounded-full active";
     allBtn.innerText = "All";
@@ -109,7 +108,6 @@ const displayButton = async () => {
   
     buttonContainer.append(allBtn);
   
-    // category buttons
     buttonData.forEach((category) => {
       const button = document.createElement("button");
       button.className = "btn rounded-full";
