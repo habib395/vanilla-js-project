@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+      .active {
+    background-color: #2563eb;
+    color: white;
+  };
+
+
+    </style>
     <!-- connected daisy ui -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -21,9 +29,9 @@
                  <ul
                    tabindex="-1"
                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                   <li><a onclick="displayProducts()">Home</a></li>
+                   <li><a id="nav-home" onclick="showHome()">Home</a></li>
                    <li>
-                     <a onclick="displayButton()">Products</a>
+                     <a id="nav-products" onclick="showProduct()">Products</a>
                    </li>
                    <li><a>About</a></li>
                    <li><a>Contact</a></li>
@@ -33,9 +41,9 @@
              </div>
              <div class="navbar-center hidden lg:flex">
                <ul class="menu menu-horizontal px-1">
-                 <li><a onclick="displayProducts()">Home</a></li>
+                 <li><a id="nav-home" onclick="showHome()">Home</a></li>
                    <li>
-                     <a onclick="displayButton()">Products</a>
+                     <a id="nav-products" onclick="showProduct()">Products</a>
                    </li>
                    <li><a>About</a></li>
                    <li><a>Contact</a></li>
@@ -52,7 +60,7 @@
      </div>
      <!-- navbar end -->
       <!-- home main section start -->
-      <main>
+      <main id="home-section">
           <!-- Banner section start -->
           <div
           class="hero min-h-screen"
@@ -72,51 +80,79 @@
         </div>
           <!-- Banner section end -->
            <!-- choose section start -->
-            <div class="choose-section bg-gray-100 py-16">
-                <div class="text-center py-12">
-                    <h2 class="font-bold text-3xl">Why Choose Us</h2>
-                <p class="text-gray-400">We provide the best shopping experience with top-notch services.</p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 w-2/3 mx-auto">
-                    <!-- card section start -->
-                     <!-- card-one start -->
-                     <div class="relative card bg-gray-50 border border-white rounded-lg p-5">
-                         <div>
-                             <i class="fas fa-shopping-cart absolute -mt-10 border border-2 border-white text-blue-600 p-3 rounded-lg bg-blue-100 text-xl"></i>
-                         </div>
-                         <h2 class="text-base py-5 font-semibold">Fast Delivery</h2>
-                         <p class="text-sm text-gray-400">Get your orders delivery ot your doorstep quickly and effectively.</p>
-                     </div>
-                     <!-- card-one end -->
-                      <!-- card two start -->
-                      <div class="relative card bg-gray-50 border border-white rounded-lg p-5">
-                        <div>
-                            <i class="fas fa-shopping-cart absolute -mt-10 border border-2 border-white text-blue-600 p-3 rounded-lg bg-blue-100 text-xl"></i>
-                        </div>
-                        <h2 class="text-base py-5 font-semibold">Fast Delivery</h2>
-                        <p class="text-sm text-gray-400">Get your orders delivery ot your doorstep quickly and effectively.</p>
-                    </div>
-                      <!-- card two end -->
-                      <!-- card three start -->
-                      <div class="relative card bg-gray-50 border border-white rounded-lg p-5">
-                        <div>
-                            <i class="fas fa-shopping-cart absolute -mt-10 border border-2 border-white text-blue-600 p-3 rounded-lg bg-blue-100 text-xl"></i>
-                        </div>
-                        <h2 class="text-base py-5 font-semibold">Fast Delivery</h2>
-                        <p class="text-sm text-gray-400">Get your orders delivery ot your doorstep quickly and effectively.</p>
-                    </div>
-                      <!-- card three end -->
-                      <!-- card four start -->
-                      <div class="relative card bg-gray-50 border border-white rounded-lg p-5">
-                        <div>
-                            <i class="fas fa-shopping-cart absolute -mt-10 border border-2 border-white text-blue-600 p-3 rounded-lg bg-blue-100 text-xl"></i>
-                        </div>
-                        <h2 class="text-base py-5 font-semibold">Fast Delivery</h2>
-                        <p class="text-sm text-gray-400">Get your orders delivery ot your doorstep quickly and effectively.</p>
-                    </div>
-                      <!-- card four end -->
-                </div>
+           <div class="choose-section bg-gray-100 py-16">
+            <!-- Heading -->
+            <div class="text-center py-6 sm:py-12">
+                <h2 class="font-bold text-2xl sm:text-3xl">
+                    Why Choose Us
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-lg mt-2">
+                    We provide the best shopping experience with top-notch services.
+                </p>
             </div>
+        
+            <!-- Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-[90%] lg:w-2/3 mx-auto py-6">
+        
+                <!-- Card 1 -->
+                <div class="relative bg-white rounded-lg p-6 shadow-sm">
+                    <i class="fas fa-truck absolute -top-6 left-6 
+                       text-blue-600 bg-blue-100 p-3 rounded-lg text-lg sm:text-xl">
+                    </i>
+        
+                    <h3 class="mt-6 font-semibold text-base sm:text-lg">
+                        Fast Delivery
+                    </h3>
+                    <p class="text-gray-400 text-sm sm:text-base mt-2">
+                        Get your orders delivered to your doorstep quickly and efficiently.
+                    </p>
+                </div>
+        
+                <!-- Card 2 -->
+                <div class="relative bg-white rounded-lg p-6 shadow-sm">
+                    <i class="fas fa-headset absolute -top-6 left-6 
+                       text-blue-600 bg-blue-100 p-3 rounded-lg text-lg sm:text-xl">
+                    </i>
+        
+                    <h3 class="mt-6 font-semibold text-base sm:text-lg">
+                        24/7 Support
+                    </h3>
+                    <p class="text-gray-400 text-sm sm:text-base mt-2">
+                        Our support team is available around the clock to assist you.
+                    </p>
+                </div>
+        
+                <!-- Card 3 -->
+                <div class="relative bg-white rounded-lg p-6 shadow-sm">
+                    <i class="fas fa-shield-alt absolute -top-6 left-6 
+                       text-blue-600 bg-blue-100 p-3 rounded-lg text-lg sm:text-xl">
+                    </i>
+        
+                    <h3 class="mt-6 font-semibold text-base sm:text-lg">
+                        Secure Payment
+                    </h3>
+                    <p class="text-gray-400 text-sm sm:text-base mt-2">
+                        Experience safe and secure transactions with encrypted systems.
+                    </p>
+                </div>
+        
+                <!-- Card 4 -->
+                <div class="relative bg-white rounded-lg p-6 shadow-sm">
+                    <i class="fas fa-undo absolute -top-6 left-6 
+                       text-blue-600 bg-blue-100 p-3 rounded-lg text-lg sm:text-xl">
+                    </i>
+        
+                    <h3 class="mt-6 font-semibold text-base sm:text-lg">
+                        Easy Returns
+                    </h3>
+                    <p class="text-gray-400 text-sm sm:text-base mt-2">
+                        Not satisfied? Return your products easily within 30 days.
+                    </p>
+                </div>
+        
+            </div>
+        </div>
+        
            <!-- choose section end -->
             <!-- trending section start -->
              <div class="trending-section py-14 w-2/3 mx-auto">
@@ -129,11 +165,11 @@
       </main>
       <!-- home main section end -->
        <!-- product main section start -->
-      <main>
+      <main id="product-section" class="hidden">
         <div class="py-20 w-2/3 mx-auto">
           <h2 class="text-xl font-bold text-center">Our Products</h2>
           <!-- button section for category start -->
-           <div id="btn-container" class="flex items-center justify-center gap-6 py-6">
+           <div id="btn-container" class="flex flex-wrap items-center justify-center gap-6 py-6">
            </div>
           <!-- button section for category end -->
            <!-- button card section start -->
@@ -150,7 +186,7 @@
        <!-- product main section end -->
 
     <!-- footer section start -->
-    <footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
+    <footer class="footer w-5/6 mx-auto sm:footer-horizontal bg-base-200 text-base-content p-10">
         <nav>
           <h6 class="footer-title">SwiftCart</h6>
           <p>Your one-stop shop for all your fashion <br>
@@ -159,8 +195,8 @@
         </nav>
         <nav>
           <h6 class="footer-title">QUICK LINKS</h6>
-          <a onclick="displayProducts()" class="link link-hover">Home</a>
-          <a onclick="displayButton()" class="link link-hover">Products</a>
+          <a onclick="showHome()" class="link link-hover">Home</a>
+          <a onclick="showProduct()" class="link link-hover">Products</a>
           <a class="link link-hover">About</a>
           <a class="link link-hover">Contact</a>
         </nav>
@@ -172,7 +208,7 @@
         </nav>
         <form>
           <h6 class="footer-title">SUBSCRIBE TO OUR NEWSLETTER</h6>
-          <fieldset class="w-80">
+          <fieldset class="w-full">
             <label>The latest news, articles and resources sent to your inbox weekly.</label>
             <div class="join">
               <input
@@ -184,7 +220,7 @@
           </fieldset>
         </form>
       </footer>
-      <footer class="footer sm:footer-horizontal items-center p-4">
+      <footer class="footer w-5/6 mx-auto sm:footer-horizontal items-center p-4">
         <aside class="grid-flow-col items-center">
           <p> © 2025 SwiftCart, Inc. All right reserved.</p>
         </aside>
